@@ -1,27 +1,28 @@
 "use client";
 
-import { getQuarticles, QuarticleType } from "@/services/quarticle";
+import { QuarticleType } from "@/services/quarticle";
 import { DateTime } from "luxon";
 import { FC, useEffect, useState } from "react";
 import Clock from "./Clock";
 
 type Props = {
   serverTime: string;
+  headlines: QuarticleType[];
 };
 
-const Headlines: FC<Props> = ({ serverTime }) => {
-  const [headlines, setHeadlines] = useState<QuarticleType[]>([]);
+const Headlines: FC<Props> = ({ serverTime, headlines }) => {
+  // const [headlines, setHeadlines] = useState<QuarticleType[]>([]);
   const [now, setNow] = useState<DateTime>(DateTime.fromISO(serverTime));
 
   useEffect(() => {
     console.log("hellurei");
   });
 
-  useEffect(() => {
-    getQuarticles(0, 10).then((ret) => {
-      setHeadlines(ret.quarticles);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getQuarticles(0, 10).then((ret) => {
+  //     setHeadlines(ret.quarticles);
+  //   });
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

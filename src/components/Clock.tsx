@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { DateTime } from "luxon";
 
+import styles from "./Clock.module.css";
+
 type Props = {
   now: DateTime;
   timezone: string;
@@ -9,7 +11,7 @@ type Props = {
 
 const Clock: FC<Props> = ({ now, timezone, label }) => {
   return (
-    <div>
+    <div className={styles.clock}>
       <div>{label}</div>
       <div>
         {now.setZone(timezone).setLocale("fi").toLocaleString({

@@ -1,0 +1,6 @@
+.clock {
+  margin-block: 1em;
+  border: 3px solid rgb(0 0 0);
+  border-radius: 10px;
+  padding: 1em;
+}
