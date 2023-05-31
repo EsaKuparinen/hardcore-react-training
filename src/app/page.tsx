@@ -1,4 +1,5 @@
-import Welcome from "@/components/welcome/Welcome";
+import Headlines from "@/components/Headlines";
+import { DateTime } from "luxon";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,9 +7,11 @@ export const metadata: Metadata = {
 };
 
 export default async function IndexPage() {
+  const serverTime = DateTime.utc().toISO() as string;
   return (
     <div>
-      <Welcome />
+      <h2>Tuoreimmat uutiset</h2>
+      <Headlines serverTime={serverTime} />
     </div>
   );
 }

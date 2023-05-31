@@ -13,7 +13,10 @@ export default async function RootLayout({ children }: Props) {
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="stylesheet" href="https://use.typekit.net/bjx8ola.css" />
       </head>
-      <body>{children}</body>
+      <body>
+        <h1>Kvauppalehti</h1>
+        {children}
+      </body>
     </html>
   );
 }
