@@ -5,6 +5,18 @@ import styles from "./Clock.module.css";
 
 import cx from "clsx";
 
+// NOTE: styled components do not work with SSR :(
+// import styled from "styled-components";
+
+// const ClockContainer = styled.div`
+//   border-radius: 10px;
+// `;
+
+// const ClockContainer = styled.div({
+//   borderRadius: "10px",
+//   border: "1px solid rgb(0 0 0)"
+// });
+
 type Props = {
   now: DateTime;
   timezone: string;

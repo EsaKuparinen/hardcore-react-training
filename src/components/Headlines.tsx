@@ -4,6 +4,7 @@ import { QuarticleType } from "@/services/quarticle";
 import { DateTime } from "luxon";
 import { FC, useEffect, useState } from "react";
 import Clock from "./Clock";
+import Headline from "./Headline";
 
 type Props = {
   serverTime: string;
@@ -40,12 +41,7 @@ const Headlines: FC<Props> = ({ serverTime, headlines }) => {
       <Clock now={now} timezone="America/New_York" label="New York" />
       <Clock now={now} timezone="Africa/Casablanca" label="Casablanca" />
       {headlines.map((headline) => {
-        return (
-          <article key={headline.id}>
-            <h3>{headline.headline}</h3>
-            <p>{headline.lead}</p>
-          </article>
-        );
+        return <Headline key={headline.id} headline={headline} />;
       })}
     </section>
   );
