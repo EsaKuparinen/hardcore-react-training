@@ -3,6 +3,8 @@ import { DateTime } from "luxon";
 
 import styles from "./Clock.module.css";
 
+import cx from "clsx";
+
 type Props = {
   now: DateTime;
   timezone: string;
@@ -10,11 +12,17 @@ type Props = {
 };
 
 const Clock: FC<Props> = ({ now, timezone, label }) => {
+  const localTime = now.setZone(timezone);
+
+  const classes = cx(styles.clock, {
+    [styles.nightTime]: localTime.hour > 0 && localTime.hour < 8
+  });
+
   return (
-    <div className={styles.clock}>
+    <div className={classes}>
       <div>{label}</div>
       <div>
-        {now.setZone(timezone).setLocale("fi").toLocaleString({
+        {localTime.setLocale("fi").toLocaleString({
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit"
