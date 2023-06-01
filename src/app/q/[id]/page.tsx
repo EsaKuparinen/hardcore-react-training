@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import * as quarticleService from "@/services/quarticle";
 import { cache } from "react";
+import Qomments from "@/components/qomments/Qomments";
 
 type Props = {
   params: {
@@ -34,9 +35,14 @@ export default async function QuarticlePage(props: Props) {
   const quarticle = await getQuarticle(props.params.id);
   return (
     <div>
+      <Qomments quarticleId={quarticle.id} />
+
       <h3>{quarticle.headline}</h3>
       <p>{quarticle.lead}</p>
-      <img src={quarticle.mainImage} />
+      <img
+        src={quarticle.mainImage}
+        style={{ maxWidth: "100%", height: "auto" }}
+      />
       <p>{JSON.stringify(quarticle.content)}</p>
     </div>
   );
