@@ -1,6 +1,7 @@
 import { QommentType } from "@/services/qomments";
 import { DateTime } from "luxon";
 import { FC } from "react";
+import Button from "../Button";
 import * as style from "./Qomment.css";
 
 type Props = {
@@ -28,14 +29,14 @@ const Qomment: FC<Props> = ({ qomment, deleteQomment, isDeleting = false }) => {
       </div>
       <div>{qomment.comment}</div>
       <div>
-        <button
+        <Button
           disabled={isDeleting}
           onClick={() => {
             deleteQomment(qomment);
           }}
         >
           poista
-        </button>
+        </Button>
       </div>
     </div>
   );

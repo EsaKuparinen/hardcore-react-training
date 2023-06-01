@@ -47,6 +47,8 @@ const QommentForm: FC<Props> = ({ postQomment }) => {
       onSubmit={handleSubmit((values, e) => {
         e?.preventDefault();
         postQomment(values);
+
+        // TODO: would need to check whether backend request succeeded or not
         reset();
       })}
     >
