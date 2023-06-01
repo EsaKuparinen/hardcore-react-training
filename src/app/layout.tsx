@@ -6,6 +6,12 @@ type Props = {
 
 import "normalize.css";
 
+import logo from "../assets/duckling.png";
+import "./layout.css";
+
+// NOTE: this is Vercel specific
+// import Image from "next/image";
+
 export default async function RootLayout({ children }: Props) {
   return (
     <html lang="fi">
@@ -15,6 +21,12 @@ export default async function RootLayout({ children }: Props) {
       </head>
       <body>
         <h1>Kvauppalehti</h1>
+
+        <img
+          src={logo.src}
+          className="mainLogo"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
         {children}
       </body>
     </html>
